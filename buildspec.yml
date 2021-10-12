@@ -18,6 +18,7 @@ phases:
     commands:
       - echo Entered the build phase...
       - cd tf
+      - terraform init
       - terraform plan
     finally:
       - echo This always runs even if the install command fails
