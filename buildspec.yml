@@ -19,9 +19,14 @@ phases:
       - echo Entered the build phase...
       - cd tf
       - terraform init
-      - terraform plan
+      - terraform plan > plan.txt
     finally:
       - echo This always runs even if the install command fails
   post_build:
     commands:
       - echo Entered the post_build phase...
+
+artifacts:
+  files:
+    - tf/plan.txt
+  discard-paths: yes
