@@ -78,9 +78,21 @@ resource "aws_iam_role_policy" "codebuild_policy" {
       "Version" = "2012-10-17",
       "Statement" = [
           {
+            "Effect" = "Allow",
+            "Resource" = [
+              "*"
+            ],
+            "Action" = [
+              "logs:CreateLogGroup",
+              "logs:CreateLogStream",
+              "logs:PutLogEvents"
+            ]
+          },
+          {
               "Effect" = "Allow",
               "Resource" = [
-                  "arn:aws:s3:::${var.s3_bucket_codepipeline}"
+                  "arn:aws:s3:::${var.s3_bucket_codepipeline}",
+                  "arn:aws:s3:::${var.s3_bucket_codepipeline}/*"
               ],
               "Action" = [
                   "s3:PutObject",
