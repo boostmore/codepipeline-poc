@@ -15,3 +15,9 @@ variable "git_repository_id" {
   type = string
   default = "boostmore/codepipeline-poc"
 }
+
+variable "git_source_name" {
+  description = "source name must not be greater than 32 characters"
+  type = string
+  default = "dw-source-poc-tf"
+}

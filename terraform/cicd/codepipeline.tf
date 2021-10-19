@@ -29,10 +29,10 @@ resource "aws_codepipeline" "codepipeline" {
   }
 
   stage {
-    name = "Terraform Plan"
+    name = "TerraformPlan"
 
     action {
-      name             = "Terraform Plan"
+      name             = "TerraformPlan"
       category         = "Build"
       owner            = "AWS"
       provider         = "CodeBuild"
@@ -48,6 +48,6 @@ resource "aws_codepipeline" "codepipeline" {
 }
 
 resource "aws_codestarconnections_connection" "git_repo" {
-  name          = "${var.git_repository_id}-connection"
+  name          = var.git_source_name
   provider_type = "GitHub"
 }

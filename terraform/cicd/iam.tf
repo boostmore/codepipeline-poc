@@ -40,7 +40,7 @@ resource "aws_iam_role_policy" "codepipeline_policy"  {
         Action = [
           "codestar-connections:UseConnection"
         ],
-        Resource = aws_codestarconnections_connection.example.arn
+        Resource = aws_codestarconnections_connection.git_repo.arn
       },
       {
         "Effect" = "Allow",
@@ -63,7 +63,7 @@ resource "aws_iam_role" "codebuild_role" {
         Effect = "Allow"
         Sid    = ""
         Principal = {
-          Service = "codepipeline.amazonaws.com"
+          Service = "codebuild.amazonaws.com"
         }
       },
     ]
